@@ -3,7 +3,7 @@
 set shell=/bin/bash
 
 " Leader key
-let mapleader="ç"
+let mapleader="ñ"
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -80,7 +80,6 @@ syntax enable
 set t_Co=256
 set background=dark
 
-set timeout timeoutlen=1500
 noremap <Leader>ft :NERDTreeToggle<cr>
 nmap <Leader>sh :noh<CR>
 nmap <tab> <c-w><c-w>

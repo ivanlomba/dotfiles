@@ -2,7 +2,7 @@ if &shell =~# 'fish$'
     set shell=sh
 endif
 
-let mapleader="<Space>"
+let mapleader="\<Space>"
 
 set nocompatible
 filetype off

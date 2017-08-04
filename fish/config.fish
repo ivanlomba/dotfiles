@@ -179,9 +179,11 @@ alias vim   "nvim"
 alias vlc   "/opt/homebrew-cask/Caskroom/vlc/2.2.1/VLC.app/Contents/MacOS/VLC"
 alias wtr   "curl -4 wttr.in"
 alias atmux "tmux -L atom"
-alias tx "tmuxinator"
-alias bb "cd $GHQ_ROOT/bitbucket.org/ivanlomba"
-alias gh "cd $GHQ_ROOT/github.com/ivanlomba"
+alias tx    "tmuxinator"
+alias bb    "cd $GHQ_ROOT/bitbucket.org/ivanlomba"
+alias gh    "cd $GHQ_ROOT/github.com/ivanlomba"
+alias l     "exa"
+alias la     "exa -la"
 
 function ranger-cd
     set tempfile '/tmp/ranger-cd'

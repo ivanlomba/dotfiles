@@ -4,5 +4,7 @@
 ._*
 .Spotlight-V100
 .Trashes
+.yarnclean
+yarn.lock
 ehthumbs.db
 Thumbs.db

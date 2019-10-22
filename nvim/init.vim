@@ -148,6 +148,10 @@ nmap <c-b> :Buffers<cr>
 
 tnoremap <esc> <C-\><C-n>
 
+" navigation on eslint errors
+nmap <silent> <leader>en :ALENext<cr>
+nmap <silent> <leader>ep :ALEPrevious<cr>
+
 " edit/source vim config
 nnoremap <leader> ev :e $MYVIMRC<cr>
 

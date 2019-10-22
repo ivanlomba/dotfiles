@@ -204,14 +204,6 @@ augroup SyntaxChecking
 augroup end
 
 " Neoformat
-"
-"
-" let g:neoformat_javascript_prettier = {
-" \ 'exe': './node_modules/.bin/prettier',
-" \ 'args': ['--stdin', '--print-width 120', '--trailing-comma all', '--no-single-quote'],
-" \ 'stdin': 1,
-" \ }
-
 let g:neoformat_javascript_prettier = {
  \ 'exe': './node_modules/.bin/prettier',
  \ 'args': ['--write', '--config $(./node_modules/.bin/prettier --find-config-path %:p)'],

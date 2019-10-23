@@ -91,15 +91,15 @@ set clipboard=unnamed
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set guifont = "ASM Regular" 14
 
-" Colors
-"let iterm_profile = $ITERM_PROFILE
-" if iterm_profile == "trabeDark"
- "  colorscheme gruvbox
- "  set background=dark
- " else
-   colorscheme solarized
-   set background=light        " Set solarized background color
- " endif
+" Colors depending iterm profile
+let iterm_profile = $ITERM_PROFILE
+  if iterm_profile == "trabeDark"
+    colorscheme gruvbox
+    set background=dark
+  else
+    colorscheme solarized
+    set background=light        " Set solarized background color
+  endif
 
 set t_Co=256
 syntax enable
@@ -224,7 +224,6 @@ set wildignore +=target/**
 set wildignore +=.bundle
 set wildignore +=*/node_modules/*
 set wildignore +=tmp/**
-
 
 " Delete trailing whitespaces
 func! DeleteTrailing()

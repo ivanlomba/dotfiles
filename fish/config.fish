@@ -48,9 +48,6 @@ __add_to_path $PYENV_ROOT/versions/3.5.2/bin
 __add_to_path $PYENV_ROOT/shims
 pyenv rehash
 
-set -x ANDROID_HOME ~/Library/Android/sdk
-set -U fish_user_paths $fish_user_paths $ANDROID_HOME/tools $ANDROID_HOME/platform-tools
-
 eval (direnv hook fish)
 
 set fish_greeting ""
@@ -176,14 +173,14 @@ function fish_user_key_bindings
 end
 
 alias vim   "nvim"
+alias l     "exa"
+alias la    "exa -la"
 alias vlc   "/opt/homebrew-cask/Caskroom/vlc/2.2.1/VLC.app/Contents/MacOS/VLC"
 alias wtr   "curl -4 wttr.in"
 alias atmux "tmux -L atom"
-alias tx    "tmuxinator"
-alias bb    "cd $GHQ_ROOT/bitbucket.org/ivanlomba"
-alias gh    "cd $GHQ_ROOT/github.com/ivanlomba"
-alias l     "exa"
-alias la     "exa -la"
+alias tx "tmuxinator"
+alias bb "cd ~/Workspace/src/bitbucket.org/trabe"
+alias gh "cd ~/Workspace/src/github.com"
 
 function ranger-cd
     set tempfile '/tmp/ranger-cd'
@@ -211,6 +208,16 @@ end
 alias g "git"
 
 set -x GHQ_ROOT "$HOME/Workspace/src"
+
+function nightshift
+  if test (uname -s) = "Darwin"
+    if test (defaults read -g AppleInterfaceStyle 2>/dev/null) = "Dark"
+      echo "is DARK"
+    end
+  else
+    echo "Not Darwin, evolve!"
+  end
+end
 
 function ighq
     ghq list | __fuzzy_find | read tempvar

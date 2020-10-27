@@ -1,4 +1,3 @@
-
 if &shell =~# 'fish$'
     set shell=sh
 endif
@@ -91,15 +90,15 @@ set clipboard=unnamed
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set guifont = "ASM Regular" 14
 
-" Colors depending iterm profile
+" Colors
 let iterm_profile = $ITERM_PROFILE
-  if iterm_profile == "trabeDark"
-    colorscheme gruvbox
-    set background=dark
-  else
-    colorscheme solarized
-    set background=light        " Set solarized background color
-  endif
+"  if iterm_profile == "trabeDark"
+  colorscheme gruvbox
+  set background=dark
+"   else
+" colorscheme solarized
+" set background=light
+"endif
 
 set t_Co=256
 syntax enable
@@ -147,10 +146,11 @@ nmap <c-p> :Files<cr>
 nmap <c-b> :Buffers<cr>
 
 tnoremap <esc> <C-\><C-n>
+" gc to comment
 
 " navigation on eslint errors
-nmap <silent> <leader>en :ALENext<cr>
-nmap <silent> <leader>ep :ALEPrevious<cr>
+nmap <leader>ee :ALENext<cr>
+nmap <leader>eep :ALEPrevious<cr>
 
 " edit/source vim config
 nnoremap <leader> ev :e $MYVIMRC<cr>
@@ -204,6 +204,14 @@ augroup SyntaxChecking
 augroup end
 
 " Neoformat
+"
+"
+" let g:neoformat_javascript_prettier = {
+" \ 'exe': './node_modules/.bin/prettier',
+" \ 'args': ['--stdin', '--print-width 120', '--trailing-comma all', '--no-single-quote'],
+" \ 'stdin': 1,
+" \ }
+
 let g:neoformat_javascript_prettier = {
  \ 'exe': './node_modules/.bin/prettier',
  \ 'args': ['--write', '--config $(./node_modules/.bin/prettier --find-config-path %:p)'],
@@ -225,9 +233,11 @@ set wildignore +=.bundle
 set wildignore +=*/node_modules/*
 set wildignore +=tmp/**
 
+
 " Delete trailing whitespaces
 func! DeleteTrailing()
    exe "normal mz"
    %s/\s\+$//ge
    exe "normal `z"
 endfunc
+

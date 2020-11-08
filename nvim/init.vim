@@ -158,7 +158,7 @@ nnoremap <leader> ev :e $MYVIMRC<cr>
 " supertab and deoplete tuning
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:deoplete#enable_at_startup=1
-let g:deoplete#enable_smart_case=1
+let g:deoplete#custom#option="smartcase"
 
 " File config
 au FileType gitcommit set tw=72
@@ -240,4 +240,3 @@ func! DeleteTrailing()
    %s/\s\+$//ge
    exe "normal `z"
 endfunc
-

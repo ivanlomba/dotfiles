@@ -203,26 +203,49 @@ augroup SyntaxChecking
   autocmd BufWritePost,BufEnter *.jsx Neomake
 augroup end
 
+" Ale
+ let g:ale_linters = {
+ \   'javascript': ['eslint'],
+ \   'javascript.jsx': ['eslint'],
+ \   'jsx': ['eslint'],
+ \   'css': ['stylelint'],
+ \}
+ let g:ale_sign_column_always = 1
+ let g:ale_sign_error = '×'
+ let g:ale_sign_warning = '!'
+ let g:ale_echo_cursor = 1
+ let g:ale_set_quickfix = 0 " if set to 1, fzf won't be able to use the quickfix window
+ let g:ale_echo_msg_format = '%code%: %s (%linter%)'
+ let g:ale_statusline_format = ['⨉%d', '!%d', ""]
+
 " Neoformat
 "
+  let g:neoformat_javascript_prettier = {
+    \ 'exe': './node_modules/.bin/prettier',
+    \ 'args': ['--stdin-filepath %:p', '--config $(./node_modules/.bin/prettier --find-config-path %:p)'],
+    \ 'stdin': 1,
+    \ }
 "
+"
+ " let g:neoformat_javascript_prettier = {
+ " \ 'exe': './node_modules/.bin/prettier',
+ " \ 'args': ['--stdin', '--print-width 120', '--trailing-comma all', '--no-single-quote'],
+ " \ 'stdin': 1,
+ " \ }
+
 " let g:neoformat_javascript_prettier = {
-" \ 'exe': './node_modules/.bin/prettier',
-" \ 'args': ['--stdin', '--print-width 120', '--trailing-comma all', '--no-single-quote'],
-" \ 'stdin': 1,
-" \ }
+ " \ 'exe': './node_modules/.bin/prettier',
+ " \ 'args': ['--write', '--config $(./node_modules/.bin/prettier --find-config-path %:p)'],
+ " \ 'replace': 1
+ " \ }
 
-let g:neoformat_javascript_prettier = {
- \ 'exe': './node_modules/.bin/prettier',
- \ 'args': ['--write', '--config $(./node_modules/.bin/prettier --find-config-path %:p)'],
- \ 'replace': 1
- \ }
-
-let g:neoformat_enabled_javascript = ['prettier']
+ let g:neoformat_enabled_javascript = ['prettier']
+ let g:neoformat_enabled_css = ['prettier']
 
 augroup fmt
   autocmd!
   autocmd BufWritePre *.js,*.jsx Neoformat! javascript
+  autocmd BufWritePre *.css Neoformat! css
 augroup end
 
 " Wildignores
@@ -240,3 +263,4 @@ func! DeleteTrailing()
    %s/\s\+$//ge
    exe "normal `z"
 endfunc
+ndfunc
